@@ -1,0 +1,11 @@
+<html>
+	<head><title>Current Temperature</title></head>
+<body>
+	{% if zip %}
+	<h1>The zip code passed is: {{zip}}</h1>
+	{% else %}
+	<h1>No variable passed in .</h1>
+	{% endif %}
+	<h1>The current temperature (F) is : {{temp}} degrees.</h1>
+</body>
+</html>
