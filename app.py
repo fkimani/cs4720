@@ -7,7 +7,7 @@ app = Flask(__name__)
 def temperature():
 	#zipcode = request.from['zip']
 	zip = requests.get("http://localhost:5000/")
-	user_apiid = ''
+	user_apiid = '' #use your APIID
 	r = requests.get("http://api.openweathermap.org/data/2.5/weather?zip='+zipcode+',us&APPID='+user_apiid +'")
 	json_object = r.json()
 	temp_k = float(json_object['main']['temp'])
