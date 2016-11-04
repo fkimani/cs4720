@@ -1,0 +1,16 @@
+A few resources to help
+1. Help with making flask work on your local machine:
+http://stackoverflow.com/questions/31252791/flask-importerror-no-module-named-flask
+
+2. Flask introduction youtube tutorial:(best to start from Part1
+https://www.youtube.com/watch?v=HILynX3Dsoc&list=PLXmMXHVSvS-AjwTOtiW1DXFYTgUlrUmHV&index=4
+
+3. Needed:
+flask. To test if you have flask:
+a. Pull up terminal
+b. type: python
+c. Python opens.
+d. type: import flask
+e. If you get no errors, you have flask installed. If error, you need to install it. See thois tut for help(see #1 above) 	
+
+
