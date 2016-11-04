@@ -1,11 +1,13 @@
 <html>
 	<head><title>Current Temperature</title></head>
 <body>
-	{% if zip %}
-	<h1>The zip code passed is: {{zip}}</h1>
+	{% if zipc %}
+	<h1>The zip code passed is: {{zipc}}</h1>
+	<h1>The current temperature for zipcode {{zipc}} is {{temp}} degrees F.</h1>
 	{% else %}
-	<h1>No variable passed in .</h1>
+	<h1>No zipcode passed in.</h1>
+	<h1>Please pass in a valid US zipcode.</h1>
 	{% endif %}
-	<h1>The current temperature (F) is : {{temp}} degrees.</h1>
+	<p>Make another zip request <a href="/">Click here</a>.</p>
 </body>
 </html>
