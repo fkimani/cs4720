@@ -2,8 +2,24 @@
 	<head><title>Current Temperature</title></head>
 <body>
 	{% if zipc %}
+	<p>{{tester}}</p>
 	<h1>The zip code passed is: {{zipc}}</h1>
 	<h1>The current temperature for zipcode {{zipc}} is {{temp}} degrees F.</h1>
+	<p> Table: </p>
+	<p>City: {{city}} </p>
+	<p>Current time: {{time}} </p>
+	<p>Country: {{country}}</p>
+	<p>Pressure: {{pressure}}</p>
+	<p>Humidity: {{ humidity}}</p>
+	<p>Temp Min: {{temp_min}}</p>
+	<p>Temp Max: {{temp_max}}</p>
+	<p>City Lat: {{city_lat}}</p>
+	<p>City Lon: {{city_lon}}</p>
+	<p>City Sunrise: {{city_sunrise}}</p>
+	<p>City Sunset: {{city_sunset}}</p>
+	<p></p>
+
+
 	{% else %}
 	<h1>No zipcode passed in.</h1>
 	<h1>Please pass in a valid US zipcode.</h1>
