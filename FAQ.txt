@@ -6,12 +6,30 @@ http://stackoverflow.com/questions/31252791/flask-importerror-no-module-named-fl
 https://www.youtube.com/watch?v=HILynX3Dsoc&list=PLXmMXHVSvS-AjwTOtiW1DXFYTgUlrUmHV&index=4
 
 3. Needed:
-flask. To test if you have flask:
+i)python3
+ii)flask. To test if you have flask:
 a. Pull up terminal
-b. type: python
+b. type: python3
 c. Python opens.
 d. type: import flask
-e. If you get no errors, you have flask installed. If error, you need to install it. See this tut for help(see #1 above) 	
+e. If you get no errors, you have flask installed. If error, you need to install it. See this tut for help(see #1 above) 
+
+iii) requests
+a. Pull up terminal
+b. type: python3
+c. Python opens.
+d. type: import requests
+e. If you get no errors, you have requests installed. If error, you need to install it.  
+*Note about requests package on cs3 server:
+[Gilberto: On cs3, I've confirmed flask is installed for python3 ( 3.5, 3.6)
+However, requests package is not installed on python3 - Only works when using python2.7. 
+*Flask not on 2.7, so we have a conflict. We will need requests installed on python3. Need to talk to instructor (He'd mentioned requests was installed but I've verified its not:
+Steps:
+cs3$:
+python3
+import requests
+>>>ImportError: No module named 'requests' 
+]
 
 4. Flask API shows list of Flask functions/routes: http://flask.pocoo.org/docs/0.11/api/
 
