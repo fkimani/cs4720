@@ -1,0 +1,75 @@
+<html>
+
+<head>
+
+<title>Request Example</title>
+
+<style>
+
+#input
+{
+   position: absolute;
+   top: 520px;
+   right: 550px;
+   background-color: red;
+}
+
+#mapping
+{
+
+   position: absolute;
+   top: 311px;
+   right: 550px;
+   height: 209px;
+   width: 325px;
+   background-color: blue;   
+}
+
+body
+{
+   background-color: silver;
+}
+#weather
+{
+     width: 325px;
+     top: 0px;
+     right: 100px;
+     
+}
+
+</style>
+
+</head>
+
+<body>
+<div id ="mapping"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48486.14194238761!2d-74.00692987093088!3d40.57728141260598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24448979d75cb%3A0x54745adc3c8f1179!2sConey+Island!5e0!3m2!1sen!2sus!4v1478446405440" width="325" height="209" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+<div id = "input">
+<form method="POST" action="/temperature">
+		Zip Code : <input type="text" name="zip">
+
+<input type="submit">
+
+
+</form>
+
+</div>
+<div id = "weather"><p>{{tester}}</p>
+	<h1>The zip code passed is: {{zipc}}</h1>
+	<h1>The current temperature for zipcode {{zipc}} is {{temp}} degrees F.</h1>
+	<p> Table: </p>
+	<p>City: {{city}} </p>
+	<p>Current time: {{time}} </p>
+	<p>Country: {{country}}</p>
+	<p>Pressure: {{pressure}}</p>
+	<p>Humidity: {{ humidity}}</p>
+	<p>Temp Min: {{temp_min}}</p>
+	<p>Temp Max: {{temp_max}}</p>
+	<p>City Lat: {{city_lat}}</p>
+	<p>City Lon: {{city_lon}}</p>
+	<p>City Sunrise: {{city_sunrise}}</p>
+	<p>City Sunset: {{city_sunset}}</p>
+<p></p>
+</div>
+</body>
+
+</html>
