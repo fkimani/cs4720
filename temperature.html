@@ -1,0 +1,54 @@
+<html>
+	<head><title>Current Temperature</title></head>
+<body>
+
+	{% if zipc %}
+	<!--<p>{{tester}}</p>-->
+<div id = "weather">
+<!--
+<div id ="mapping"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48486.14194238761!2d-74.00692987093088!3d40.57728141260598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24448979d75cb%3A0x54745adc3c8f1179!2s+'zipc+'!5e0!3m2!1sen!2sus!4v1478446405440" width="325" height="209" frameborder="0" style="border:0" allowfullscreen></iframe></div>-->
+
+<h1>{{city}} Area Map</h1>
+
+<div id="map" style="width:100%;height:500px"></div>
+
+<script>
+function myMap() {
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {
+    //center: new google.maps.LatLng(51.5, -0.2), zoom: 10
+    center: new google.maps.LatLng({{city_lat}}, {{city_lon}}), zoom: 10
+  }
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+
+
+
+	<h1>The zip code passed is: {{zipc}}</h1>
+	<h1>The current temperature for zipcode {{zipc}} is {{temp}} degrees F.</h1>
+	<h2> {{city}} Weather Data: </h2>
+	<p>City: {{city}} </p>
+	<p>Current time: {{time}} </p>
+	<p>Country: {{country}}</p>
+	<p>Pressure: {{pressure}}</p>
+	<p>Humidity: {{ humidity}}</p>
+	<p>Temp Min: {{temp_min}}</p>
+	<p>Temp Max: {{temp_max}}</p>
+	<p>City Lat: {{city_lat}}</p>
+	<p>City Lon: {{city_lon}}</p>
+	<p>City Sunrise: {{city_sunrise}}</p>
+	<p>City Sunset: {{city_sunset}}</p>
+	<p></p>
+
+
+	{% else %}
+	<h1>No zipcode passed in.</h1>
+	<h1>Please pass in a valid US zipcode.</h1>
+	{% endif %}
+	<p>Make another zip request <a href="/">Click here</a>.</p>
+</div>
+</body>
+</html>
