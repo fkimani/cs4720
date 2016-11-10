@@ -14,7 +14,7 @@ Incoroporating JS on googlemaps api call
 
 JS for form validation
 
-Results are in json object format
+Results are in json format
 
 Parsing and Translating results with key:value pair relationships
 
