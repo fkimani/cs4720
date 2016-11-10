@@ -2,7 +2,7 @@
 
 Internet Programming Project: FK & GR
 
-Application that takes in a zip code and provides weather data for that region\n
+Application that takes in a zip code and provides weather data for that region
 
 Results include temperature, pressure, time, sunrise, sunset ...
 
@@ -11,6 +11,8 @@ Using flask python package
 API calls to Open weather api server for weather data using REST principles
 
 Incoroporating JS on googlemaps api call
+
+JS for form validation
 
 Results are in json object format
 
