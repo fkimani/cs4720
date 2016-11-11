@@ -10,7 +10,9 @@ def temperature():
 	user_apiid = '5cb00286a7cf3a8f11164ed76bcaf93e'
 	#r = requests.get("http://api.openweathermap.org/data/2.5/weather?zip='+zipcode+',us&units=imperial&APPID='+user_apiid'")
 	#r = requests.get("http://api.openweathermap.org/data/2.5/weather?zip='+zipcode+',us&units=imperial&APPID="+user_apiid)
-	r = requests.get("http://api.openweathermap.org/data/2.5/weather?zip='+zipcode+',us&APPID="+user_apiid)
+	#r = requests.get("http://api.openweathermap.org/data/2.5/weather?zip='+zipcode+',us&APPID="+user_apiid)
+	url = "http://api.openweathermap.org/data/2.5/weather?zip={},us&units=imperial&APPID={}".format(zipcode,user_apiid)
+	r = requests.get(url)
 	json_object = r.json() #r.text()
 	#temp_f = float(json_object['main']['temp'])
 	temp_k = float(json_object['main']['temp'])
