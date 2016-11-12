@@ -1,11 +1,36 @@
 <html>
 	<head>
 		<title>Request Example</title>
+		<script>
+		document.getElementById("input").onkeyup = function(){
+			var input = document.getElementById("zip_input").value
+
+			function zzvalidateInput(input){
+				if ((input.value == " "))
+					alert("Enter Valid Zip")
+			}
+		}
+		document.getElementById('submit").addEventListener("click", validateInput, false);
+		function validateInput(){
+			alert("input received")
+		}
+		</script>
+
+		<!--Link to css stylesheet -->
+		<!-- does the same thing as url_for-->
+		<!--link type="text/css" rel="stylesheet" href="/static/css/style.css"/> -->
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"/>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+		<link type="text/javascript" href="{{ url_for('static', filename='js/script.js') }}">
 	</head>
+
 	<body>
+		<div id = "input">
+		<p>Enter a US zip code to get weather information</p>
 		<form method="POST" action="/temperature">
-			Zip Code : <input type="text" name="zip">
-			<input type="submit">
+					Zip Code : <input type="text" name="zip" placeholder="Zip Code" id="zip_input">
+			<input type="submit" id="submit_btn">
 		</form>
+		</div>
 	</body>
 </html>

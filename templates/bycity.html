@@ -1,0 +1,15 @@
+<html>
+	<head><title>bycity - search by city name</title></head>
+<body>
+	{% if city %}
+	<p>Test city name passed</p>
+	<p>City name is {{city}}</p>
+	<p>a is {{a}}</p>
+
+	{% else %}
+	<h1>Nothing .</h1>
+	<h1>Please pass in valid city name.</h1>
+	{% endif %}
+	<p>Make another  request <a href="/">Click here</a>.</p>
+</body>
+</html>

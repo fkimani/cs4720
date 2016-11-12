@@ -1,14 +1,42 @@
 <html>
-	<head><title>Current Temperature</title></head>
+	<head><title>Current Temperature</title>
+				<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"/>	
+				<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+	</head>
 <body>
+
 	{% if zipc %}
-	<p>{{tester}}</p>
-	<h1>The zip code passed is: {{zipc}}</h1>
-	<h1>The current temperature for zipcode {{zipc}} is {{temp}} degrees F.</h1>
-	<p> Table: </p>
-	<p>City: {{city}} </p>
-	<p>Current time: {{time}} </p>
-	<p>Country: {{country}}</p>
+	<!--<p> {{zipc}} {{tester}} </p>-->
+<div id = "weather">
+
+<h1>{{city}} Area Map</h1>
+
+<!--<div id="map" style="width:100%;height:500px"></div>-->
+<div id="map" style="width:100%;height:500px"></div>
+
+<script>
+function myMap() {
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {
+    //center: new google.maps.LatLng(51.5, -0.2), zoom: 10
+    center: new google.maps.LatLng({{city_lat}}, {{city_lon}}), zoom: 10
+  }
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+}
+//$(".icon").html("<img src='" + iconUrl  + "'>");
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+
+	
+
+	<!--<h1>The zip code passed is: {{zipc}}</h1>-->
+	<h2>Weather Data:  {{city}} {{zipc}} </h2>
+	<p>Current Temperature: {{temp}} &deg; F</p>
+	<p>Description : {{icon_desc}} <img src="{{icon_url}}"/></p>
+	<p>Local time {{time}} </p>
+	<p>City: {{city}}, {{country}} </p>
+	<p>Wind Direction: {{wind_dir}}</p>
 	<p>Pressure: {{pressure}}</p>
 	<p>Humidity: {{ humidity}}</p>
 	<p>Temp Min: {{temp_min}}</p>
@@ -25,5 +53,6 @@
 	<h1>Please pass in a valid US zipcode.</h1>
 	{% endif %}
 	<p>Make another zip request <a href="/">Click here</a>.</p>
+</div>
 </body>
 </html>
