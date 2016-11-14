@@ -1,0 +1,31 @@
+#input
+{
+   /*position: absolute;*/
+   /*top: 520px;*/
+   top: 20px;
+   /*right: 550px;*/
+   padding: 10px;
+   background-color: beige;
+margin:0 auto;
+width:350px;
+}
+#mapping
+{
+   position: absolute;
+   top: 311px;
+   right: 550px;
+   height: 209px;
+   width: 325px;
+   background-color: blue;   
+}
+body
+{
+   background-color: silver;
+}
+#weather
+{
+     width: 325px;
+     top: 0px;
+     right: 100px;
+     
+}
