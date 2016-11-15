@@ -42,16 +42,23 @@ def temperature():
 	city_sunrise = dt_to_strtime(city_sunrise_dt)
 	city_sunset	= dt_to_strtime(city_sunset_dt)
 	wind_direction = json_object['wind']['deg']
+	#convert wind degrees to compass direction
+	def degToCompass(num):
+		val=int((num/22.5)+.5)
+		arr=["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+		return arr[(val % 16)]
+	#call function we defined to convert degrees to compass directions
+	wind_deg_to_dir = degToCompass(wind_direction)
 
 	#You'll get the icon code from the object that your JSON call returns,
 	icon_code = json_object['weather'][0]['icon']
 	icon_description = json_object['weather'][0]['main']
-	#and then use that to construct a url which points to the icon,
+	#and then use that to construct a url which points to the current weather icon
 	icon_url = "http://openweathermap.org/img/w/{}.png".format(icon_code)
-	#and then write that to your html using jQuery (or vanilla JavaScript).
+	#and then write that to your html using jQuery (or vanilla JavaScript). I used html
 	#$(".icon").html("<img src='" + iconUrl  + "'>");
 
-	return render_template('temperature.html',  temp=temp_f, zipc = zipcode, tester=test_success, city = city_name, pressure = pressure_imperial, humidity=humidity_imperial, temp_min = temp_min_imperial, temp_max = temp_max_imperial , city_coord=city_coord , country=city_country, city_sunrise =city_sunrise , city_sunset=city_sunset, city_lat=city_coord_lat, city_lon=city_coord_lon, time = local_time, icon_url = icon_url, icon_desc = icon_description, wind_dir = wind_direction)
+	return render_template('temperature.html',  temp=temp_f, zipc = zipcode, tester=test_success, city = city_name, pressure = pressure_imperial, humidity=humidity_imperial, temp_min = temp_min_imperial, temp_max = temp_max_imperial , city_coord=city_coord , country=city_country, city_sunrise =city_sunrise , city_sunset=city_sunset, city_lat=city_coord_lat, city_lon=city_coord_lon, time = local_time, icon_url = icon_url, icon_desc = icon_description, wind_dir = wind_deg_to_dir)
 
 @app.route('/bycity', methods=['GET', 'POST'])
 def page2():
