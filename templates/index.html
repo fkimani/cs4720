@@ -10,7 +10,10 @@
 					alert("Enter Valid Zip")
 			}
 		}
-		document.getElementById('submit").addEventListener("click", validateInput, false);
+		
+		//add event listener to submit button		
+		document.getElementById("submit-btn").addEventListener("click", validateInput, false);
+		//click handler for submit button
 		function validateInput(){
 			alert("input received")
 		}
@@ -28,7 +31,7 @@
 		<div id = "input">
 		<p>Enter a US zip code to get weather information</p>
 		<form method="POST" action="/temperature">
-					Zip Code : <input type="text" name="zip" placeholder="Zip Code" id="zip_input">
+					<!--Zip Code :--> <input type="text" name="zip" placeholder="Zip Code" id="zip_input">
 			<input type="submit" id="submit_btn">
 		</form>
 		</div>

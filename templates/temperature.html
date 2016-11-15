@@ -23,7 +23,7 @@ function myMap() {
   }
   var map = new google.maps.Map(mapCanvas, mapOptions);
 }
-//$(".icon").html("<img src='" + iconUrl  + "'>");
+//$(".icon").html("<img src='" + iconUrl  + "'>");  jquery option
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
@@ -32,15 +32,16 @@ function myMap() {
 
 	<!--<h1>The zip code passed is: {{zipc}}</h1>-->
 	<h2>Weather Data:  {{city}} {{zipc}} </h2>
-	<p>Current Temperature: {{temp}} &deg; F</p>
+	<p>Current Temperature: {{temp}} &deg; F /Min: {{temp_min}} &deg; F Max: {{temp_max}} &deg; F</p>
 	<p>Description : {{icon_desc}} <img src="{{icon_url}}"/></p>
 	<p>Local time {{time}} </p>
-	<p>City: {{city}}, {{country}} </p>
+	<p>City: {{city}} </p>
+	<!--<p>Country:{{country}} </p>-->
 	<p>Wind Direction: {{wind_dir}}</p>
 	<p>Pressure: {{pressure}}</p>
 	<p>Humidity: {{ humidity}}</p>
-	<p>Temp Min: {{temp_min}}</p>
-	<p>Temp Max: {{temp_max}}</p>
+	<p>Temp Min: {{temp_min}} &deg; F</p>
+	<p>Temp Max: {{temp_max}} &deg; F</p>
 	<p>City Lat: {{city_lat}}</p>
 	<p>City Lon: {{city_lon}}</p>
 	<p>City Sunrise: {{city_sunrise}}</p>
@@ -52,7 +53,7 @@ function myMap() {
 	<h1>No zipcode passed in.</h1>
 	<h1>Please pass in a valid US zipcode.</h1>
 	{% endif %}
-	<p>Make another zip request <a href="/">Click here</a>.</p>
+	<p>Request info on another zip code <a href="/">Click here</a>.</p>
 </div>
 </body>
 </html>
