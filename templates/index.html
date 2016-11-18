@@ -1,7 +1,26 @@
 <html>
 	<head>
 		<title>Request Example</title>
-		<script>
+		<script>//this function will validate user input 
+		function runner()
+		{
+			var x = document.getElementById("zip_input").value;
+			var i = 0;
+			for(i in x){
+				if ( isNaN(parseInt(x[i])) )
+				{
+					alert ("please enter correct zip code");
+					break;
+										
+				}
+			}	
+		}
+		//event handler for runner function
+		document.getElementById("submit_btn").addEventListener('click', runner, false)
+		}
+
+
+
 		document.getElementById("input").onkeyup = function(){
 			var input = document.getElementById("zip_input").value
 
@@ -32,7 +51,7 @@
 		<p>Enter a US zip code to get weather information</p>
 		<form method="POST" action="/temperature">
 					<!--Zip Code :--> <input type="text" name="zip" placeholder="Zip Code" id="zip_input">
-			<input type="submit" id="submit_btn">
+			<input type="submit" id="submit_btn" onClick="runner()">
 		</form>
 		</div>
 	</body>

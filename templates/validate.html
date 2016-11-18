@@ -1,0 +1,46 @@
+
+<html>
+<head>
+<h1>TEST</h1>
+
+<!--<input type ="submit" id="submit">-->
+<script>
+/*
+function runner()
+{
+	var v = document.getElementById("validate");
+		
+	var i;
+	var x = "123tio";
+	for(i in x){
+		if ( isNaN(parseInt(x[i])) ) {alert ("not a number");}else{alert("is a number");}
+	}	
+}*/
+
+function runner()
+{
+	var x = document.getElementById("validate").value;
+	var i = 0;
+	
+	if (x.length == 5){
+	for(i in x)
+	{
+		if ( isNaN(parseInt(x[i])) )
+		{
+			alert ("please enter correct zip code");
+			break;
+		}
+	}
+	} else {alert ("please enter correct zip code");}
+}
+//event handler
+document.getElementById("butten").addEventListener('click', runner, false)
+
+</script>
+</head>
+<body>
+<input type="text" id="validate" placeholder="Enter Zip Code">
+<button id="butten" onClick="runner()">tec</button>
+</body>
+</html>
+
