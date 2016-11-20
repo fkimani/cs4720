@@ -41,14 +41,14 @@ def temperature():
 	local_time = dt_to_strtime(city_dt)
 	city_sunrise = dt_to_strtime(city_sunrise_dt)
 	city_sunset	= dt_to_strtime(city_sunset_dt)
-	wind_direction = json_object['wind']['deg']
+	wind_degree = json_object['wind']['deg']
 	#convert wind degrees to compass direction
 	def degToCompass(num):
 		val=int((num/22.5)+.5)
 		arr=["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
 		return arr[(val % 16)]
 	#call function we defined to convert degrees to compass directions
-	wind_deg_to_dir = degToCompass(wind_direction)
+	wind_deg_to_dir = degToCompass(wind_degree)
 
 	#You'll get the icon code from the object that your JSON call returns,
 	icon_code = json_object['weather'][0]['icon']

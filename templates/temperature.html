@@ -1,7 +1,8 @@
 <html>
-	<head><title>Current Temperature</title>
+	<head><title>{{city}} Weather {{time}} </title>
 				<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"/>	
 				<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+				<link type="text/javascript" href="{{ url_for('static', filename='js/script.js') }}">
 	</head>
 <body>
 
@@ -12,8 +13,8 @@
 <h1>{{city}} Area Map</h1>
 
 <!--<div id="map" style="width:100%;height:500px"></div>-->
-<div id="map" style="width:50%;height:300px"></div>
-
+<div id="map" style="width:50%;height:500px"></div>
+<!--Find a flask way to separate the script so its on static js folder-->
 <script>
 function myMap() {
   var mapCanvas = document.getElementById("map");
@@ -28,7 +29,7 @@ function myMap() {
 
 <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 
-	
+	<div id = "weatherdata">
 
 	<!--<h1>The zip code passed is: {{zipc}}</h1>-->
 	<h2>Weather Data:  {{city}} {{zipc}} </h2>
@@ -46,14 +47,15 @@ function myMap() {
 	<p>City Lon: {{city_lon}}</p>
 	<p>City Sunrise: {{city_sunrise}}</p>
 	<p>City Sunset: {{city_sunset}}</p>
-	<p></p>
-
+	<p>Request info on another zip code <a href="/">Click here</a>.</p>
+	
 
 	{% else %}
-	<h1>No zipcode passed in.</h1>
-	<h1>Please pass in a valid US zipcode.</h1>
+	<h2>No zipcode passed in.</h1>
+	<h2>Please enter in a valid US zip code. <a href="/">Click here.</a></h2>
 	{% endif %}
-	<p>Request info on another zip code <a href="/">Click here</a>.</p>
-</div>
+	
+	</div> <!--/weatherdata-->
+</div> <!--/results-->
 </body>
 </html>

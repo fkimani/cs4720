@@ -1,7 +1,8 @@
 <html>
 	<head>
-		<title>Request Example</title>
-		<script>//this function will validate user input 
+		<title>Weather Data By Zip Input</title>
+		<script>
+		//this function will validate user input 
 		function runner()
 		{
 			var x = document.getElementById("zip_input").value;
@@ -10,18 +11,19 @@
 				if ( isNaN(parseInt(x[i])) )
 				{
 					alert ("please enter correct zip code");
-					break;
+					//break;
 										
 				}
 			}	
 		}
+
 		//event handler for runner function
-		document.getElementById("submit_btn").addEventListener('click', runner, false)
-		}
+		document.getElementById("submit_btn").addEventListener('click', runner, false);
+		
 
 
 
-		document.getElementById("input").onkeyup = function(){
+		document.getElementById("zip_input").value = function(){
 			var input = document.getElementById("zip_input").value
 
 			function zzvalidateInput(input){
@@ -43,7 +45,7 @@
 		<!--link type="text/css" rel="stylesheet" href="/static/css/style.css"/> -->
 		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"/>
 		<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
-		<link type="text/javascript" href="{{ url_for('static', filename='js/script.js') }}">
+		<!--<link type="text/javascript" href="{{ url_for('static', filename='js/script.js') }}">-->
 	</head>
 
 	<body>
@@ -52,6 +54,7 @@
 		<form method="POST" action="/temperature">
 					<!--Zip Code :--> <input type="text" name="zip" placeholder="Zip Code" id="zip_input">
 			<input type="submit" id="submit_btn" onClick="runner()">
+			<!--<input type="submit" id="submit_btn" onClick="runner()">-->
 		</form>
 		</div>
 	</body>
