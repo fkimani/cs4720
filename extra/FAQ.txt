@@ -1,0 +1,35 @@
+A few resources to help
+1. Help with making flask work on your local machine:
+http://stackoverflow.com/questions/31252791/flask-importerror-no-module-named-flask
+
+2. Flask introduction youtube tutorial:(best to start from Part1)
+https://www.youtube.com/watch?v=HILynX3Dsoc&list=PLXmMXHVSvS-AjwTOtiW1DXFYTgUlrUmHV&index=4
+
+3. Needed:
+flask. To test if you have flask:
+a. Pull up terminal
+b. type: python
+c. Python opens.
+d. type: import flask
+e. If you get no errors, you have flask installed. If error, you need to install it. See this tut for help(see #1 above) 	
+
+4. Flask API shows list of Flask functions/routes: http://flask.pocoo.org/docs/0.11/api/
+
+5. Help returning multiple values in render_template: http://stackoverflow.com/questions/12096522/how-to-return-multiple-values-in-render-template-in-flask
+(issue here was that {{zipc}} was not being passed.
+
+6. Help troubleshoot flask 'keyerror': http://stackoverflow.com/questions/24816114/keyerror-when-key-exists
+
+flask templates: http://flask.pocoo.org/docs/0.11/tutorial/templates/
+flask css (style) documentation: http://flask.pocoo.org/docs/0.11/tutorial/css/
+
+issue with requests not working in cs3: needed
+flask versions installed on cs3: find out using cmd: pip list.
+It should show you version and flask elements installed
+
+requests package tut/docs: http://docs.python-requests.org/en/master/user/advanced/
+
+
+http://www.w3schools.com/graphics/google_maps_intro.asp --> reference for map on /temperature 
+
+wind degrees to direction conversion: http://stackoverflow.com/questions/7490660/converting-wind-direction-in-angles-to-text-words

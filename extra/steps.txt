@@ -1,0 +1,9 @@
+11/3/2016
+Terminal 
+Navigate to project folder
+On terminal ~/$: python app.py
+When app launch is successful , message will include:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+Grab the URL from this first line (ie http://127.0.0.1:5000/ ) or Right click > Open Link
+On browser, type in the zip or form data
+Submit
+Submission should take you to the temperature page/page requested on submission. 
