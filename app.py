@@ -7,7 +7,16 @@ app = Flask(__name__)
 
 @app.route('/temperature', methods=['GET', 'POST'])
 def temperature():
-	zipcode = request.form['zip']
+	#this function checks for valid zip inputs. If input is not numeric, its invalid and results wont render
+	def validatezip():	
+		error = None
+		if request.method == 'POST':
+			if (request.form['zip']).isdigit():
+				return request.form['zip']
+		else:
+			error = 'invalid entry. Need numeric.'
+	zipcode = validatezip()
+	#zipcode = request.form['zip']
 	user_apiid = '5cb00286a7cf3a8f11164ed76bcaf93e'
 	url = "http://api.openweathermap.org/data/2.5/weather?zip={},us&units=imperial&APPID={}".format(zipcode,user_apiid)
 	r = requests.get(url)
