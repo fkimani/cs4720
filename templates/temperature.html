@@ -1,8 +1,9 @@
 <html>
-	<head><title>{{city}} Weather {{time}} </title>
-				<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"/>	
-				<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}">
-				<link type="text/javascript" href="{{ url_for('static', filename='js/script.js') }}">
+	<head>
+		<title>{{city}} Weather {{time}}</title>
+			<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"/>	
+			<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+			<link type="text/javascript" href="{{ url_for('static', filename='js/script.js') }}">
 	</head>
 <body>
 
@@ -10,10 +11,9 @@
 	<!--<p> {{zipc}} {{tester}} </p>-->
 <div id = "results">
 
-<h1>{{city}} Area Map</h1>
 
-<!--<div id="map" style="width:100%;height:500px"></div>-->
-<div id="map" style="width:50%;height:500px"></div>
+
+<div id="map-wrapper"><h2>{{city}} Area Map</h2><div id="map"></div></div>
 <!--Find a flask way to separate the script so its on static js folder-->
 <script>
 function myMap() {
@@ -32,7 +32,7 @@ function myMap() {
 	<div id = "weatherdata">
 
 	<!--<h1>The zip code passed is: {{zipc}}</h1>-->
-	<h2>Weather Data:  {{city}} {{zipc}} </h2>
+	<h2>Weather Data:  {{city}}, {{zipc}} </h2>
 	<p>Current Temperature: {{temp}} &deg; F /Min: {{temp_min}} &deg; F Max: {{temp_max}} &deg; F</p>
 	<p>Description : {{icon_desc}} <img src="{{icon_url}}"/></p>
 	<p>Local time {{time}} </p>
@@ -48,11 +48,16 @@ function myMap() {
 	<p>City Sunrise: {{city_sunrise}}</p>
 	<p>City Sunset: {{city_sunset}}</p>
 	<p>Request info on another zip code <a href="/">Click here</a>.</p>
-	
+
 
 	{% else %}
-	<h2>No zipcode passed in.</h1>
-	<h2>Please enter in a valid US zip code. <a href="/">Click here.</a></h2>
+	<!--<h2>No valid zipcode passed in.</h2>
+	<h2>Please enter in a valid numeric US zip code. <a href="/">Click here.</a></h2>-->
+	<script>
+		window.location.href='/';	
+	</script>
+
+
 	{% endif %}
 	
 	</div> <!--/weatherdata-->

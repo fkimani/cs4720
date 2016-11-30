@@ -11,21 +11,19 @@
 				if ( isNaN(parseInt(x[i])) )
 				{
 					alert ("please enter correct zip code");
-					//break;
-										
+					document.getElementById("zip_input").value =" ";
+					//window.location.href='/';
+					break;
 				}
-			}	
+				
+			}
+			
 		}
-
 		//event handler for runner function
 		document.getElementById("submit_btn").addEventListener('click', runner, false);
 		
-
-
-
 		document.getElementById("zip_input").value = function(){
 			var input = document.getElementById("zip_input").value
-
 			function zzvalidateInput(input){
 				if ((input.value == " "))
 					alert("Enter Valid Zip")
@@ -49,10 +47,11 @@
 	</head>
 
 	<body>
+	<div id="scrappy"><img class="owl" src="{{ url_for('static', filename='img/ksu-logo.png') }}"></div>
 		<div id = "input">
 		<p>Enter a US zip code to get weather information</p>
 		<form method="POST" action="/temperature">
-					<!--Zip Code :--> <input type="text" name="zip" placeholder="Zip Code" id="zip_input">
+					<!--Zip Code :--> <input type="text" name="zip" placeholder="Zip Code" id="zip_input" maxlength="5">
 			<input type="submit" id="submit_btn" onClick="runner()">
 			<!--<input type="submit" id="submit_btn" onClick="runner()">-->
 		</form>
