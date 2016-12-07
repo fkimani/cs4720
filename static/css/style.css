@@ -1,11 +1,12 @@
 #input {
     top: 20px;
-    padding: 10px;
+    padding: 10px 20px 10px 40px;
     background-color: #febc11;
     margin: 0 auto;
-    width: 350px;
+    width: 430px;
     position: absolute;
-    right: 500px;
+    right: 392px;
+    height: 119px;
     border: 1px solid gray;
 }
 img.owl {
@@ -23,7 +24,7 @@ img.owl {
 }
 body
 {
-   background-color: silver;
+   background-color: white;
    /*background-image: url('ksu-logo.png');*/
 }
 #weather
@@ -34,13 +35,15 @@ body
 }
 #results
 {
-      background-color: beige;
+      background-color: white;
 }
 
 #map {
     width: 50%;
-    height: 400px;
+    /*height: 400px;*/
+	height:560px;	
     float: left;
+	border: solid 1px black;
 }
 #weatherdata {
     width: 45%;
