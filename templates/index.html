@@ -1,6 +1,9 @@
 <html>
 	<head>
-		<title>Weather Data By Zip Input</title>
+		<title>Zip - Weather Data</title>
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"/>	
+		<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+		<link type="text/javascript" href="{{ url_for('static', filename='js/script.js') }}">
 		<script>
 		//this function will validate user input 
 		function runner()
@@ -10,50 +13,43 @@
 			for(i in x){
 				if ( isNaN(parseInt(x[i])) )
 				{
-					alert ("please enter correct zip code");
+					alert ("Please enter a valid US zip code");
 					document.getElementById("zip_input").value =" ";
-					//window.location.href='/';
 					break;
 				}
-				
+				else if(x.length < 5)
+				{
+					alert ("Please enter a 5 digit US zip code");
+					document.getElementById("zip_input").value =" ";
+					break;
+				}
+				else if(x.length == 0)
+				{
+					alert ("Please enter a 5 digit US zip code");
+					document.getElementById("zip_input").value =" ";
+					break;
+				}
+				else if(x == " ")
+				{
+					alert ("Blank input! Please enter a 5 digit US zip code");
+					document.getElementById("zip_input").value ="";
+					break;
+				}
 			}
-			
-		}
-		//event handler for runner function
-		document.getElementById("submit_btn").addEventListener('click', runner, false);
 		
-		document.getElementById("zip_input").value = function(){
-			var input = document.getElementById("zip_input").value
-			function zzvalidateInput(input){
-				if ((input.value == " "))
-					alert("Enter Valid Zip")
-			}
 		}
 		
-		//add event listener to submit button		
-		document.getElementById("submit-btn").addEventListener("click", validateInput, false);
-		//click handler for submit button
-		function validateInput(){
-			alert("input received")
-		}
 		</script>
 
-		<!--Link to css stylesheet -->
-		<!-- does the same thing as url_for-->
-		<!--link type="text/css" rel="stylesheet" href="/static/css/style.css"/> -->
-		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"/>
-		<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
-		<!--<link type="text/javascript" href="{{ url_for('static', filename='js/script.js') }}">-->
 	</head>
 
-	<body>
+	<body onload="runner()">
 	<div id="scrappy"><img class="owl" src="{{ url_for('static', filename='img/ksu-logo.png') }}"></div>
 		<div id = "input">
 		<p>Enter a US zip code to get weather information</p>
 		<form method="POST" action="/temperature">
-					<!--Zip Code :--> <input type="text" name="zip" placeholder="Zip Code" id="zip_input" maxlength="5">
+					<!--Zip Code input:--> <input type="text" name="zip" placeholder="Zip Code" id="zip_input" maxlength="5">
 			<input type="submit" id="submit_btn" onClick="runner()">
-			<!--<input type="submit" id="submit_btn" onClick="runner()">-->
 		</form>
 		</div>
 	</body>

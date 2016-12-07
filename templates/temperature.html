@@ -1,62 +1,59 @@
 <html>
 	<head>
-		<title>{{city}} Weather {{time}}</title>
+		<title>{{zipc}} - {{city}} Weather {{time}}</title>
+		<meta content="{{city}} weather {{time}}" name="title" />
+		<meta content="weather {{city}}, {{city}} weather, {{city}} climate, temperature {{city}}, current weather {{city}} " name="keywords" />
+		<meta content="Current {{city}} weather data, {{country}}. Temperature, wind, local time" name="description" />
 			<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}"/>	
 			<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}">
 			<link type="text/javascript" href="{{ url_for('static', filename='js/script.js') }}">
 	</head>
 <body>
-
+<!--if a valid zip has been passed in, render the weather data-->
 	{% if zipc %}
-	<!--<p> {{zipc}} {{tester}} </p>-->
 <div id = "results">
 
+<h2>{{zipc}} - {{city}} - Current Weather Data </h2>
 
-
-<div id="map-wrapper"><h2>{{city}} Area Map</h2><div id="map"></div></div>
-<!--Find a flask way to separate the script so its on static js folder-->
+<!--the map is rendered here with the help of this third party JS plugin obtained from w3 schools (http://www.w3schools.com/graphics/google_maps_basic.asp)-->
+<div id="map-wrapper"><div id="map">{{city}} Map</div></div>
 <script>
 function myMap() {
   var mapCanvas = document.getElementById("map");
   var mapOptions = {
-    //center: new google.maps.LatLng(51.5, -0.2), zoom: 10
+    //center: the map using city long/lat that are passed from app.py
     center: new google.maps.LatLng({{city_lat}}, {{city_lon}}), zoom: 10
   }
   var map = new google.maps.Map(mapCanvas, mapOptions);
 }
-//$(".icon").html("<img src='" + iconUrl  + "'>");  jquery option
+
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 
 	<div id = "weatherdata">
-
-	<!--<h1>The zip code passed is: {{zipc}}</h1>-->
-	<h2>Weather Data:  {{city}}, {{zipc}} </h2>
-	<p>Current Temperature: {{temp}} &deg; F /Min: {{temp_min}} &deg; F Max: {{temp_max}} &deg; F</p>
-	<p>Description : {{icon_desc}} <img src="{{icon_url}}"/></p>
-	<p>Local time {{time}} </p>
+	Conditions: {{icon_desc}} <img src="{{icon_url}}"/> 
+	<p>Temperature: {{temp}} &deg;F</p>
+	<p>Temp Min: {{temp_min}} &deg;F</p>
+	<p>Temp Max: {{temp_max}} &deg;F</p>
+	<p>Local time: {{time}} hrs</p>
 	<p>City: {{city}} </p>
-	<!--<p>Country:{{country}} </p>-->
+	<p>Zip: {{zipc}} </p>
+	<p>Country: {{country}} </p>
 	<p>Wind Direction: {{wind_dir}}</p>
-	<p>Pressure: {{pressure}}</p>
-	<p>Humidity: {{ humidity}}</p>
-	<p>Temp Min: {{temp_min}} &deg; F</p>
-	<p>Temp Max: {{temp_max}} &deg; F</p>
-	<p>City Lat: {{city_lat}}</p>
-	<p>City Lon: {{city_lon}}</p>
-	<p>City Sunrise: {{city_sunrise}}</p>
-	<p>City Sunset: {{city_sunset}}</p>
+	<p>Atmospheric Pressure: {{pressure}} hPa</p>
+	<p>Humidity: {{ humidity}} %</p>
+	<p>City Lattitude: {{city_lat}}</p>
+	<p>City Longitude: {{city_lon}}</p>
+	<p>City Sunrise: {{city_sunrise}} hrs</p>
+	<p>City Sunset: {{city_sunset}} hrs</p>
 	<p>Request info on another zip code <a href="/">Click here</a>.</p>
 
-
+<!--if a valid zip has NOT been passed in, DONT render the weather data. Direct user back to index page-->
 	{% else %}
-	<!--<h2>No valid zipcode passed in.</h2>
-	<h2>Please enter in a valid numeric US zip code. <a href="/">Click here.</a></h2>-->
 	<script>
 		window.location.href='/';	
 	</script>
-
 
 	{% endif %}
 	
